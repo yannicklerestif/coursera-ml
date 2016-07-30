@@ -30,9 +30,13 @@ X = [ones(m, 1) X];
 %       for each row.
 %       
 
+predictions = sigmoid(X * (all_theta'));
 
+%disp(predictions(1:20,:));
 
+[values, p] = max(predictions, [], 2);
 
+%disp(p(1:20,:));
 
 
 
