@@ -109,9 +109,17 @@ Theta2_Squares = (Theta2(:,2:size(Theta2,2))).^2;
 
 J = J + lambda / (2 * m ) * (sum(sum(Theta1_Squares)) + sum(sum(Theta2_Squares)));
 
-Theta1_grad = 1 / m * DELTA1;
+Theta1_without_1stcol = Theta1;
 
-Theta2_grad = 1 / m * DELTA2;
+Theta1_without_1stcol(:,1:1) = zeros(size(Theta1,1),1);
+
+Theta2_without_1stcol = Theta2;
+
+Theta2_without_1stcol(:,1:1) = zeros(size(Theta2,1),1);
+
+Theta1_grad = 1 / m * DELTA1 + lambda / m * Theta1_without_1stcol;
+
+Theta2_grad = 1 / m * DELTA2 + lambda / m * Theta2_without_1stcol;
 
 
 
