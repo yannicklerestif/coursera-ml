@@ -10,6 +10,7 @@ m = length(y); % number of training examples
 
 % You need to return the following variables correctly 
 J = 0;
+
 grad = zeros(size(theta));
 
 % ====================== YOUR CODE HERE ======================
@@ -19,16 +20,21 @@ grad = zeros(size(theta));
 %               You should set J to the cost and grad to the gradient.
 %
 
+for i = 1:m
+    xi = (X(i,:))';
+    erri = theta' * xi - y(i); %real number
+    J = J + (erri)^2;
+    grad = grad + erri * xi;
+end
 
+J = J / (2 * m);
+grad = grad / m;
 
+theta_ = theta;
+theta_(1) = 0;
 
-
-
-
-
-
-
-
+J = J + lambda / (2 * m) * sum(theta_.^2);
+grad = grad + lambda / m * theta_;
 
 % =========================================================================
 

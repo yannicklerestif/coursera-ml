@@ -15,7 +15,9 @@ X_poly = zeros(numel(X), p);
 %
 % 
 
-
+for t = 1:p
+    X_poly(:,t) = X.^t;
+end
 
 
 
