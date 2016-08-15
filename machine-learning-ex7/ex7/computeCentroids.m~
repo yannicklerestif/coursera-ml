@@ -28,13 +28,11 @@ centroids = zeros(K, n);
 
 points_for_centroids = zeros(K,1);
 for i = 1:m
-    centroids(idx(i),:) = centroids(idx(i),:) + X(i,:);
-    points_for_centroids(idx(i)) = points_for_centroids(idx(i)) + 1;
+    centroids(i)
 end
 
-for k = 1:K
-    centroids(k, :) = centroids(k,:) / points_for_centroids(k);
-end
+
+
 
 
 

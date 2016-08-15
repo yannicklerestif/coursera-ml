@@ -26,12 +26,9 @@ m = size(X,1);
 for i = 1:m
     shortest_sq_distance = -1;
     for j = 1:K
-        sample_to_centroid = X(i,:) - centroids(j,:);
+        sample_to_centroid = X(i,:) - centroid(j,:);
         sq_distance = sum(sample_to_centroid.^2);
-        if(shortest_sq_distance == -1 || sq_distance < shortest_sq_distance)
-            shortest_sq_distance = sq_distance;
-            idx(i) = j;
-        end
+        if(shortest_sq_distance == -1 || sq_distance < shortest_
     end
 end
 
